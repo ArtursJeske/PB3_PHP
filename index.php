@@ -81,6 +81,11 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["vards"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["zina"]) . "</td>";
+    echo "<td><a href= 'edit.php?id=" . $row["id"] . "'>Rediģēt</a></td>";
+    echo "<td><form method='POST' action='delete.php' onsubmit='return confirm(\"Vai tiešām vēlaties dzēst šo ierakstu?\");'>
+            <input type='hidden' name='id' value='" . $row["id"] . "'>
+            <button type='submit'>Dzēst</button>
+          </form></td>";
     echo "</tr>";
 }
 
