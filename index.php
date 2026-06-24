@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <h1>Viesu grāmata</h1>
-
+<a href="login.php"> Login </a>
+<br><br><br>
 <?= $message ?>
 
 <form method="POST">
@@ -60,10 +61,10 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["vards"]) . "</td>";
     echo "<td>" . htmlspecialchars($row["zina"]) . "</td>";
-    echo "<td><a href='edit.php?id=" . $row["id"] . "'>Rediģēt</a></td>";
+    echo "<td><a href='edit.php?id=" . htmlspecialchars($row["id"]) . "'>Rediģēt</a></td>";
     echo "<td>
             <form method='POST' action='delete.php' onsubmit='return confirm(\"Vai tiešām vēlaties dzēst šo ierakstu?\");'>
-                <input type='hidden' name='id' value='" . $row["id"] . "'>
+                <input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>
                 <button type='submit'>Dzēst</button>
             </form>
           </td>";
