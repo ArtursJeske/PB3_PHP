@@ -24,16 +24,9 @@ Pieslēdzies MariaDB ar `root` lietotāju (ievadīsi savu MariaDB root paroli):
 mariadb -u root -p
 ```
 
-MariaDB konsolē izveido datubāzi:
-
-```sql
-CREATE DATABASE viesu_gramata;
-exit;
-```
-
 ## 2. Tabulu ielādēšana
 
-Ielādē projekta `db.sql` failu, kas izveido tabulas `Viesu_gramata` un `lietotaji`:
+Ielādē projekta `db.sql` failu, kas izveido datubāzi `viesu_gramata` un tabulas `viesu_gramata` un `lietotaji`:
 
 ```bash
 mariadb -u root -p viesu_gramata < db.sql

@@ -1,4 +1,7 @@
-CREATE TABLE IF NOT EXISTS Viesu_gramata (
+CREATE DATABASE IF NOT EXISTS viesu_gramata;
+USE viesu_gramata;
+
+CREATE TABLE IF NOT EXISTS viesu_gramata (
     id INT AUTO_INCREMENT PRIMARY KEY,
     vards VARCHAR(100),
     zina TEXT
