@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'db.php';
 $conn = getConn();
 require_once 'messages.php';
@@ -36,7 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <h1>Viesu grāmata</h1>
-<a href="login.php"> Login </a>
+
+<?php if (isset($_SESSION['lietotajvards'])): ?>
+    <p>Sveiks, <?= htmlspecialchars($_SESSION['lietotajvards']) ?>! (loma: <?= htmlspecialchars($_SESSION['loma']) ?>)</p>
+    <a href="logout.php">Izlogoties</a>
+<?php else: ?>
+    <a href="login.php">Login</a>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['loma']) && $_SESSION['loma'] === 'admin'): ?>
+    <div class="admin-panelis">
+        <h2>[ Admin panelis ]</h2>
+        <p>Šo sadaļu redz tikai lietotāji ar lomu "admin".</p>
+        <a href="admin.php">Atvērt admin paneli →</a>
+    </div>
+<?php endif; ?>
 <br><br><br>
 <?= $message ?>
 
